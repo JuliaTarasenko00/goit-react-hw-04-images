@@ -19,6 +19,7 @@ export const Modal = ({ onCloys, imgModal, modalTags }) => {
         onCloys();
       }
     };
+
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);

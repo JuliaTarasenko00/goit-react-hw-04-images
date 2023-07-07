@@ -28,7 +28,6 @@ export const App = () => {
     if (!name) {
       return;
     }
-
     setIsLoading(true);
     Api.images(name, page)
       .then(images => {
@@ -42,11 +41,12 @@ export const App = () => {
         page === 1 &&
           toast.success(`Wow found ${images.totalHits} pictures `, {
             position: 'top-right',
+            autoClose: 1000,
           });
 
-        setImg(prevState => {
-          return page === 1 ? images.hits : [...prevState, ...images.hits];
-        });
+        setImg(prevState =>
+          page === 1 ? images.hits : [...prevState, ...images.hits]
+        );
         setTotalPages(Math.floor(images.totalHits / 12));
         setIsLoading(false);
       })
